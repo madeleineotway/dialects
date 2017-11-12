@@ -8,7 +8,8 @@ Description: Converts between species in a spectral reference library
     for SWATH-MS and DIA analysis.
 Imports: data.table,
     seqinr,
-    splitstackshape
+    splitstackshape,
+    ade4
 biocViews: 
 License: GPL-3
 Encoding: UTF-8
