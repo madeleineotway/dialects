@@ -1,0 +1,16 @@
+Package: dialects
+Type: Package
+Title: Data Independent Acquisition Library Editing to Convert The Species
+Version: 0.1.0
+Author: Madeleine J Otway 
+Maintainer: Madeleine J Otway <motway@cmri.org.au>
+Description: Converts between species in a spectral reference library
+    for SWATH-MS and DIA analysis.
+Imports: data.table,
+    seqinr,
+    splitstackshape
+biocViews: 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
