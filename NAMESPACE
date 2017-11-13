@@ -1,3 +1,3 @@
 exportPattern("^[[:alnum:]]+")
-import(data.table, seqinr, splitstackshape)
-importFrom("'ade4", "utils", "read.table", "write.table")
+import(ade4, data.table, seqinr, splitstackshape)
+importFrom("utils", "read.table", "write.table")

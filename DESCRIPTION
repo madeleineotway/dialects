@@ -6,7 +6,7 @@ Author: Madeleine J Otway
 Maintainer: Madeleine J Otway <motway@cmri.org.au>
 Description: Converts between species in a spectral reference library
     for SWATH-MS and DIA analysis.
-Imports: ade4(≥ 1.7-8),
+Imports: ade4,
     data.table,
     seqinr,
     splitstackshape,
