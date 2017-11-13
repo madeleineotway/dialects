@@ -9,7 +9,7 @@ Description: Converts between species in a spectral reference library
 Imports: data.table,
     seqinr,
     splitstackshape,
-Depends: ade4
+    ade4
 biocViews: 
 License: GPL-3
 Encoding: UTF-8

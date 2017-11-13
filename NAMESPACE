@@ -1,3 +1,4 @@
+useDynLib(ade4, .registration = TRUE, .fixes = "C_")
 exportPattern("^[[:alnum:]]+")
 import(data.table, seqinr, splitstackshape, ade4)
 importFrom("utils", "read.table", "write.table")
