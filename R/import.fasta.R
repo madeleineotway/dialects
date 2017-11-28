@@ -1,10 +1,28 @@
-#' Import an protein sequene database.
+#' Import a fasta file.
 #'
-#' This function imports a protein sequence database in fasta file format.
+#' Imports a fasta formatted protein sequence file (downloaded from
+#' \url{www.uniprot.org}). This function is compatable with SwissProt and
+#' TrEMBL entries.
 #'
-#'  export.srl()
 #'
-
+#' @param fasta.file Directory and filename of fasta formatted protein sequence
+#'
+#' @examples
+#' fasta <- system.file("extdata", "FASTA", package = "dialects")
+#' import.fasta(fasta)
+#'
+#'
+#' @author Madeleine J Otway \email{motway@@cmri.org.au}
+#'
+#' @family related
+#' @seealso
+#'
+#' @export import.fasta
+#' @import seqinr
+#' @import ade4
+#'
+#'
+#'
 import.fasta <- function(fasta.file){
 
   oldw <- getOption("warn")

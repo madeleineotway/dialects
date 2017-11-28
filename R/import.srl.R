@@ -1,10 +1,29 @@
 #' Import an SRL.
 #'
-#' This function imports a spectral reference library in either PeakView or OpenSWATH formats.
+#' This function imports a spectral reference library (SRL) in either
+#' PeakView/OneOmics or OpenSWATH formats.
 #'
-#'  import.srl()
+#' @param filepath Directory and filename of the SRL
+#' @param SRL.format The format of the SRL. Either "peakview" or "openswath".
+#' Defaults to "peakview"
 #'
-
+#' @examples
+#' srl-pv <- system.file("extdata", "SRL-PV", package = "dialects")
+#' import.srl(srl-pv)
+#' import.srl(srl-pv, SRL.format = "peakview")
+#'
+#' #' srl-os <- system.file("extdata", "SRL-OS", package = "dialects")
+#' import.srl(srl-os, SRL.format = "openswath")
+#'
+#'
+#' @author Madeleine J Otway \email{motway@@cmri.org.au}
+#'
+#' @family related
+#' @seealso
+#'
+#' @export import.srl
+#'
+#'
 import.srl <- function(filepath, SRL.format = "peakview"){
 
   oldw <- getOption("warn")

@@ -1,10 +1,32 @@
-#' Converts the SRL species.
+#' Conversion of an SRL from one species to another.
 #'
-#' This function converts the species of the imported SRL to that of the imported fasta file.
+#' Converts the species in the spectral reference library to the species in the
+#' digested fasta data frame where full peptide identity occurs.
 #'
-#'  convert.species()
 #'
-
+#' @param SRL.df A data frame of the spectral reference library from
+#' \code{\link{import.srl}}
+#' @param digest.df A data frame of the digested protein sequence from the
+#' desired species generated from  \code{\link{digest.fasta}}
+#'
+#' @return A data frame of the new spectral reference library with the peptides
+#' from the desired species.
+#'
+#' @examples
+#' digest <- system.file("extdata", "DIGEST", package = "dialects")
+#' srl <- ("extdata", "SRL", package = "dialects")
+#' convert.species(digest, srl)
+#'
+#'
+#' @author Madeleine J Otway \email{motway@@cmri.org.au}
+#'
+#' @family related
+#' @seealso
+#'
+#' @export convert.species
+#'
+#'
+#'
 convert.species <- function(SRL.df, digest.df){
 
   oldw <- getOption("warn")

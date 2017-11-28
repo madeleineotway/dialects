@@ -1,11 +1,35 @@
-#' Digests a protein sequence database.
+#' Tryptic digestion of a protein sequence dataframe.
 #'
-#' This function performs an in silico trypsin digestions of the imported protein sequence database (fasta file).
+#' This function performs an in-silico trypsin digestion on a data frame from a
+#' protein sequence fasta file.
 #'
-#'  digest.fasta()
+#' @details Data frame must have the vector names: accession, name, sequence
 #'
-
-
+#' @param fasta.df Data frame generated from \code{\link{import.fasta}}
+#'
+#' @return Returns a data frame of the peptide sequences of the digested
+#'   proteins.
+#'
+#' @note This function removes all non-unique peptides. Removes all peptides
+#'   less than 5 and greater than 52 amino acids.
+#'
+#' @examples
+#' fasta <- system.file("extdata", "FASTA.DF", package = "dialects")
+#' digest.fasta(fasta)
+#'
+#'
+#' @author Madeleine J Otway \email{motway@@cmri.org.au}
+#'
+#' @family related
+#' @seealso
+#'
+#' @export digest.fasta
+#' @import data.table
+#' @import splitstackshape
+#'
+#'
+#'
+#'
 digest.fasta <- function(fasta.df){
 
   oldw <- getOption("warn")

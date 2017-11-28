@@ -1,10 +1,25 @@
 #' Export an SRL.
 #'
-#' This function exports a spectral reference library in either PeakView or OpenSWATH formats.
+#' Exports a spectral reference library (SRL) in either PeakView/OneOmics or
+#' OpenSWATH formats.
 #'
-#'  export.srl()
+#' @param SRL.df Data frame of an SRL
+#' @param SRL.filepath The directory and filename of the SRL to be exported
 #'
-
+#' @examples
+#' srl <- ("extdata", "SRL", package = "dialects")
+#' export.srl(srl, "new-srl.txt")
+#'
+#'
+#' @author Madeleine J Otway \email{motway@@cmri.org.au}
+#'
+#' @family related
+#' @seealso
+#'
+#' @export export.srl
+#'
+#'
+#'
 export.srl <- function(SRL.df, SRL.filepath){
 
   oldw <- getOption("warn")
