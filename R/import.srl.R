@@ -3,9 +3,9 @@
 #' This function imports a spectral reference library (SRL) in either
 #' PeakView/OneOmics or OpenSWATH formats.
 #'
-#' @param filepath Directory and filename of the SRL
-#' @param SRL.format The format of the SRL. Either "peakview" or "openswath".
-#' Defaults to "peakview"
+#' @param filepath Directory and filename of the SRL.
+#' @param SRL.format The format of the SRL. Either "peakview" for PeakView or
+#' OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".
 #'
 #' @examples
 #' srl-pv <- system.file("extdata", "SRL-PV", package = "dialects")
@@ -29,33 +29,45 @@ import.srl <- function(filepath, SRL.format = "peakview"){
   oldw <- getOption("warn")
   options(warn = -1)
 
-  # Test arguments
-  # Test if all arguments are present
+  ## Test arguments
+  ## Test if all arguments are present
   if(missing(filepath))
     stop("ERROR: Need to specify SRL filepath")
 
-  # Test if SRL.format matches file format
-  filepath.test <- filepath
-  if(SRL.format == "peakview" & (!(endsWith(filepath.test, ".txt"))))
-    stop("ERROR: Incorrect SRL format.")
-  if(SRL.format == "openswath" & (!(endsWith(filepath.test, ".csv"))))
-      stop("ERROR: Incorrect SRL format.")
+  ## Test if SRL.format matches file format
+  filepath.test <- noquote(filepath)
+  if(SRL.format == "peakview" & (!(endsWith(filepath.test, "txt"))))
+    stop("ERROR: Incorrect PeakView format.")
 
-  #PEAKVIEW / ONEOMICS
-  if(SRL.format == "peakview")
+  if(SRL.format == "openswath")
+    if ((!(endsWith(filepath.test, ".csv"))) | (!(endsWith(filepath.test, ".tsv"))))
+      stop("ERROR: Incorrect OpenSWATH format.")
+
+  if((SRL.format != "peakview") & (SRL.format != "openswath"))
+    stop("Error: SRL.format can be \"peakview\" or \"openswath\" only.")
+
+  ## Find separator
+  if((endsWith(filepath.test, "txt")) | (endsWith(filepath.test, "tsv")))
     srl.df <- read.table(filepath,
                          sep = "\t",
                          header = T,
                          quote = NULL,
                          stringsAsFactors = F)
 
-  #OpenSWATH
-  if(SRL.format == "openswath")
+  if((endsWith(filepath.test, ".csv")))
     srl.df <- read.table(filepath,
                          sep = ",",
                          header = T,
                          quote = NULL,
                          stringsAsFactors = F)
+
+  ## Test expected header names
+  ## PeakView
+  if(SRL.format == "peakview" & (!(colnames(SRL.df[1]) == "Q1")))
+    stop("ERROR: SRL is not formatted for PeakView or OneOmics.")
+  ## OpenSWATH
+  if(SRL.format == "openswath" & (!(colnames(SRL.df[1]) == "PrecursorMz")))
+    stop("ERROR: SRL is not formatted for OpenSWATH.")
 
   options(warn = oldw)
 

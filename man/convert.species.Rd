@@ -4,14 +4,17 @@
 \alias{convert.species}
 \title{Conversion of an SRL from one species to another.}
 \usage{
-convert.species(SRL.df, digest.df)
+convert.species(SRL.df, digest.df, SRL.format = "peakview")
 }
 \arguments{
 \item{SRL.df}{A data frame of the spectral reference library from
-\code{\link{import.srl}}}
+\code{\link{import.srl}}.}
 
 \item{digest.df}{A data frame of the digested protein sequence from the
-desired species generated from  \code{\link{digest.fasta}}}
+desired species generated from  \code{\link{digest.fasta}}.}
+
+\item{SRL.format}{The format of the SRL. Either "peakview" for PeakView or
+OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".}
 }
 \value{
 A data frame of the new spectral reference library with the peptides
@@ -20,6 +23,10 @@ from the desired species.
 \description{
 Converts the species in the spectral reference library to the species in the
 digested fasta data frame where full peptide identity occurs.
+}
+\note{
+This process will remove the retention time calibration protein from a
+PeakView/OneOmics SRL.
 }
 \examples{
 digest <- system.file("extdata", "DIGEST", package = "dialects")

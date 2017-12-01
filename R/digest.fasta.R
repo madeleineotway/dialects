@@ -55,10 +55,15 @@ digest.fasta <- function(fasta.df){
             ",", fasta.dt$sequence, perl = T)
   fasta.dt$sequence <- x
   # Digest sequences
-  digest.dt <- splitstackshape::cSplit(fasta.dt, "sequence", sep = ",", direction = "long", drop = F, fixed = F)
+  digest.dt <- splitstackshape::cSplit(fasta.dt, "sequence",
+                                       sep = ",",
+                                       direction = "long",
+                                       drop = F,
+                                       fixed = F)
   digest.dt$sequence <- as.character(digest.dt$sequence)
   # Remove all peptides less than 5 and more than 52 amino acids long
-  digest.2.dt <- digest.dt[!(nchar(digest.dt$sequence) < 5 | nchar(digest.dt$sequence) > 52), ]
+  digest.2.dt <- digest.dt[!(nchar(digest.dt$sequence) < 5 |
+                           nchar(digest.dt$sequence) > 52), ]
   # Remove all non-unique peptides
   digest.3.dt <- unique(digest.2.dt, by = "sequence")
   # Conert data table back to data frame

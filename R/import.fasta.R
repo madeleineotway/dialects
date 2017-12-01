@@ -5,7 +5,7 @@
 #' TrEMBL entries.
 #'
 #'
-#' @param fasta.file Directory and filename of fasta formatted protein sequence
+#' @param fasta.file Directory and filename of fasta formatted protein sequence.
 #'
 #' @examples
 #' fasta <- system.file("extdata", "FASTA", package = "dialects")

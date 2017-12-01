@@ -7,7 +7,7 @@
 import.fasta(fasta.file)
 }
 \arguments{
-\item{fasta.file}{Directory and filename of fasta formatted protein sequence}
+\item{fasta.file}{Directory and filename of fasta formatted protein sequence.}
 }
 \description{
 Imports a fasta formatted protein sequence file (downloaded from

@@ -7,10 +7,10 @@
 import.srl(filepath, SRL.format = "peakview")
 }
 \arguments{
-\item{filepath}{Directory and filename of the SRL}
+\item{filepath}{Directory and filename of the SRL.}
 
-\item{SRL.format}{The format of the SRL. Either "peakview" or "openswath".
-Defaults to "peakview"}
+\item{SRL.format}{The format of the SRL. Either "peakview" for PeakView or
+OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".}
 }
 \description{
 This function imports a spectral reference library (SRL) in either
