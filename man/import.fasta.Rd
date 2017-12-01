@@ -11,11 +11,11 @@ import.fasta(fasta.file)
 }
 \description{
 Imports a fasta formatted protein sequence file (downloaded from
-\url{www.uniprot.org}). This function is compatable with SwissProt and
-TrEMBL entries.
+\url{www.uniprot.org}). This function is compatable with SwissProt and TrEMBL
+entries.
 }
 \examples{
-fasta <- system.file("extdata", "FASTA", package = "dialects")
+fasta <- system.file("extdata", "human_proteome_example.fasta", package = "dialects")
 import.fasta(fasta)
 
 

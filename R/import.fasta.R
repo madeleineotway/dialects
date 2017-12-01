@@ -1,14 +1,14 @@
 #' Import a fasta file.
 #'
 #' Imports a fasta formatted protein sequence file (downloaded from
-#' \url{www.uniprot.org}). This function is compatable with SwissProt and
-#' TrEMBL entries.
+#' \url{www.uniprot.org}). This function is compatable with SwissProt and TrEMBL
+#' entries.
 #'
 #'
 #' @param fasta.file Directory and filename of fasta formatted protein sequence.
 #'
 #' @examples
-#' fasta <- system.file("extdata", "FASTA", package = "dialects")
+#' fasta <- system.file("extdata", "human_proteome_example.fasta", package = "dialects")
 #' import.fasta(fasta)
 #'
 #'

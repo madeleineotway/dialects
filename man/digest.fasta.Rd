@@ -25,8 +25,8 @@ This function removes all non-unique peptides. Removes all peptides
   less than 5 and greater than 52 amino acids.
 }
 \examples{
-fasta <- system.file("extdata", "FASTA.DF", package = "dialects")
-digest.fasta(fasta)
+load("~/dialects/data/human_proteome_example.rda")
+digest.fasta(human_proteome_example)
 
 
 }

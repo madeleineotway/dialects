@@ -7,8 +7,8 @@
 #' @param SRL.filepath The directory and filename of the SRL to be exported
 #'
 #' @examples
-#' srl <- ("extdata", "SRL", package = "dialects")
-#' export.srl(srl, "new-srl.txt")
+#' load("~/dialects/data/rat_srl_example.rda")
+#' export.srl(rat_srl_example, "new-srl.txt")
 #'
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
@@ -16,6 +16,7 @@
 #' @family related
 #' @seealso
 #'
+#' @importFrom utils write.table
 #' @export export.srl
 #'
 #'

@@ -18,9 +18,9 @@
 #' PeakView/OneOmics SRL.
 #'
 #' @examples
-#' digest <- system.file("extdata", "DIGEST", package = "dialects")
-#' srl <- ("extdata", "SRL", package = "dialects")
-#' convert.species(digest, srl)
+#' load("~/dialects/data/rat_srl_example.rda")
+#' load("~/dialects/data/human_digest_example.rda")
+#' #convert.species(human_digest_example, rat_srl_example)
 #'
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}

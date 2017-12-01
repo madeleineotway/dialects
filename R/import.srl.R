@@ -8,12 +8,12 @@
 #' OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".
 #'
 #' @examples
-#' srl-pv <- system.file("extdata", "SRL-PV", package = "dialects")
-#' import.srl(srl-pv)
-#' import.srl(srl-pv, SRL.format = "peakview")
+#' srl_pv <- system.file("extdata", "rat_srl_example.txt", package = "dialects")
+#' import.srl(srl_pv)
+#' import.srl(srl_pv, SRL.format = "peakview")
 #'
-#' #' srl-os <- system.file("extdata", "SRL-OS", package = "dialects")
-#' import.srl(srl-os, SRL.format = "openswath")
+#' #srl-os <- system.file("extdata", "SRL-OS", package = "dialects")
+#' #import.srl(srl-os, SRL.format = "openswath")
 #'
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
@@ -21,6 +21,7 @@
 #' @family related
 #' @seealso
 #'
+#' @importFrom utils read.table
 #' @export import.srl
 #'
 #'
