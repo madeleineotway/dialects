@@ -44,12 +44,12 @@ export.srl <- function(SRL.df, SRL.filepath){
   filepath.test <- SRL.filepath
   if((SRL.colnames == peakview.test) & (!(endsWith(filepath.test, ".txt"))))
     stop("ERROR: Incorrect SRL format.")
-  if((SRL.colnames == openswath.test) & (!(endsWith(filepath.test, ".csv"))))
-    stop("ERROR: Incorrect SRL format.")
+  if((SRL.colnames == openswath.test))
+     if((!(endsWith(filepath.test, ".csv"))) |
+        (!(endsWith(filepath.test, ".tsv"))))
+       stop("ERROR: Incorrect SRL format.")
 
-  if((SRL.colnames == peakview.test) &
-     (!(SRL.colnames == openswath.test)) &
-     (endsWith(filepath.test, ".txt"))) {
+  if((endsWith(filepath.test, ".txt")) | (endsWith(filepath.test, ".tsv"))) {
     write.table(SRL.df,
               file = SRL.filepath,
               quote = F,
@@ -59,9 +59,7 @@ export.srl <- function(SRL.df, SRL.filepath){
               col.names = T)
   }
 
-  if((SRL.colnames == openswath.test) &
-     (!(SRL.colnames == peakview.test)) &
-     (endsWith(filepath.test, ".csv"))) {
+  if(endsWith(filepath.test, ".csv")) {
     write.table(SRL.df,
                 file = SRL.filepath,
                 quote = F,

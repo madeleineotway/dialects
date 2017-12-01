@@ -35,7 +35,7 @@ import.srl <- function(filepath, SRL.format = "peakview"){
     stop("ERROR: Need to specify SRL filepath")
 
   ## Test if SRL.format matches file format
-  filepath.test <- noquote(filepath)
+  filepath.test <- filepath
   if(SRL.format == "peakview" & (!(endsWith(filepath.test, "txt"))))
     stop("ERROR: Incorrect PeakView format.")
 
@@ -63,10 +63,10 @@ import.srl <- function(filepath, SRL.format = "peakview"){
 
   ## Test expected header names
   ## PeakView
-  if(SRL.format == "peakview" & (!(colnames(SRL.df[1]) == "Q1")))
+  if(SRL.format == "peakview" & (!(colnames(srl.df[1]) == "Q1")))
     stop("ERROR: SRL is not formatted for PeakView or OneOmics.")
   ## OpenSWATH
-  if(SRL.format == "openswath" & (!(colnames(SRL.df[1]) == "PrecursorMz")))
+  if(SRL.format == "openswath" & (!(colnames(srl.df[1]) == "PrecursorMz")))
     stop("ERROR: SRL is not formatted for OpenSWATH.")
 
   options(warn = oldw)

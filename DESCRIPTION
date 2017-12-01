@@ -1,7 +1,7 @@
 Package: dialects
 Type: Package
 Title: Data Independent Acquisition Library Editing to Convert The Species
-Version: 0.0.0.33
+Version: 0.0.0.34
 Author: Madeleine J Otway 
 Maintainer: Madeleine J Otway <motway@cmri.org.au>
 Description: Converts between species in a spectral reference library
