@@ -1,0 +1,89 @@
+---
+title: "Convert a spectral reference library with dialects"
+author: "Madeleine J Otway"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ConvertSRL}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r echo = F, message = F, warning = F}
+library(dialects)
+library(knitr)
+library(kableExtra)
+```
+```{r}
+library(dialects)
+library(knitr)
+library(kableExtra)
+```
+
+## Import a fasta file
+
+The user must first download a protein sequence database in fasta format (available at www.uniprot.org/). This function will work with SwissProt and TrEMBL formatted protein sequences. The user can then import the fasta file into the global environmet.
+
+```{r}
+human.proteome <- import.fasta(system.file("extdata", "human_proteome_example.fasta", package = "dialects"))
+```
+```{r echo = FALSE, results = 'asis'}
+kable(head(human.proteome), format = "html") %>%
+  scroll_box(width = "688px", height = "300px")
+```
+
+
+## Digest the fasta file
+
+The user then performs an in silico trypsin digestion. This diestion does not moodel Lys-C and does not include missed cleavages.
+
+```{r}
+digest.human <- digest.fasta(human.proteome)
+```
+```{r echo = FALSE, results = 'asis'}
+kable(head(digest.human), format = "html") %>%
+  scroll_box(width = "688px", height = "300px")
+```
+
+
+## Import a spectral reference library (SRL)
+
+The user can then import an SRL into the global environment. This package is compatable with either PeakView/OneOmics or OpenSWATH SRL format. NOTE: This package cannot convert between PeakView/OneOmics and OpenSWATH formats. Also note: OpenSWATH format must be comma separated.
+
+```{r}
+rat.srl <- import.srl(system.file("extdata", "rat_srl_example.txt", package = "dialects"), SRL.format = "peakview")
+```
+```{r echo = FALSE, results = 'asis'}
+kable((rat.srl), format = "html") %>%
+  scroll_box(width = "688px", height = "300px")
+```
+
+
+## Covert the species of the SRL
+
+Users will convert the species of the SRL to that of the fasta file, where full sequence identity occurs. NOTE: All retention time calibration peptides will not be converted and will not be copied to the new SRL. 
+
+```{r}
+human.from.rat <- convert.species(rat.srl, digest.human)
+```
+```{r echo = FALSE, results = 'asis'}
+kable(head(human.from.rat), format = "html") %>%
+  scroll_box(width = "688px", height = "300px")
+```
+
+
+## Covert the species of the SRL
+
+Users export the SRL in either PeakView/OneOmics or OpenSWATH format. The format of the imported and exported SRL will be identical. A PeakView/OneOmics SRL will be tab separated and an OpenSWATH SRL will be comma separated.
+
+```{r}
+# export.srl(human.from.rat, system.file("extdata", "human-from-rat-srl.txt", package = "dialects"))
+```
+
+
+## Session info
+```{r}
+sessionInfo()
+```
+
+
