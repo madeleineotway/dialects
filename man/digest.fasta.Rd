@@ -25,7 +25,7 @@ This function removes all non-unique peptides. Removes all peptides
   less than 5 and greater than 52 amino acids.
 }
 \examples{
-load("~/dialects/data/human_proteome_example.rda")
+data(human_proteome_example)
 digest.fasta(human_proteome_example)
 
 

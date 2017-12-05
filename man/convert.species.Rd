@@ -29,8 +29,8 @@ This process will remove the retention time calibration protein from a
 PeakView/OneOmics SRL.
 }
 \examples{
-load("~/dialects/data/rat_srl_example.rda")
-load("~/dialects/data/human_digest_example.rda")
+data(rat_srl_example)
+data(human_digest_example)
 #convert.species(human_digest_example, rat_srl_example)
 
 

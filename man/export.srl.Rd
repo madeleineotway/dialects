@@ -16,7 +16,7 @@ Exports a spectral reference library (SRL) in either PeakView/OneOmics or
 OpenSWATH formats.
 }
 \examples{
-load("~/dialects/data/rat_srl_example.rda")
+data(rat_srl_example)
 export.srl(rat_srl_example, "new-srl.txt")
 
 

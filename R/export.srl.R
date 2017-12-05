@@ -7,7 +7,7 @@
 #' @param SRL.filepath The directory and filename of the SRL to be exported
 #'
 #' @examples
-#' load("~/dialects/data/rat_srl_example.rda")
+#' data(rat_srl_example)
 #' export.srl(rat_srl_example, "new-srl.txt")
 #'
 #'
