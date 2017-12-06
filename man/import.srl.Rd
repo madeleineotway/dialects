@@ -16,6 +16,9 @@ OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".}
 This function imports a spectral reference library (SRL) in either
 PeakView/OneOmics or OpenSWATH formats.
 }
+\note{
+PeakView and OneOmics SRLs must be .txt format. OpenSWATH must be either .tsv or .csv format.
+}
 \examples{
 srl_pv <- system.file("extdata", "rat_srl_example.txt", package = "dialects")
 import.srl(srl_pv)
@@ -23,7 +26,6 @@ import.srl(srl_pv, SRL.format = "peakview")
 
 #srl-os <- system.file("extdata", "SRL-OS", package = "dialects")
 #import.srl(srl-os, SRL.format = "openswath")
-
 
 }
 \seealso{

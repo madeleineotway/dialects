@@ -15,6 +15,7 @@
 #' #srl-os <- system.file("extdata", "SRL-OS", package = "dialects")
 #' #import.srl(srl-os, SRL.format = "openswath")
 #'
+#' @note PeakView and OneOmics SRLs must be .txt format. OpenSWATH must be either .tsv or .csv format.
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
 #'
@@ -38,11 +39,11 @@ import.srl <- function(filepath, SRL.format = "peakview"){
   ## Test if SRL.format matches file format
   filepath.test <- filepath
   if(SRL.format == "peakview" & (!(endsWith(filepath.test, "txt"))))
-    stop("ERROR: Incorrect PeakView format.")
+    stop("ERROR: Please check PeakView/OneOmics SRL file format is .txt")
 
   if(SRL.format == "openswath")
     if ((!(endsWith(filepath.test, ".csv"))) | (!(endsWith(filepath.test, ".tsv"))))
-      stop("ERROR: Incorrect OpenSWATH format.")
+      stop("ERROR: Please check OpenSWATH SRL file format is either .csv or .tsv")
 
   if((SRL.format != "peakview") & (SRL.format != "openswath"))
     stop("Error: SRL.format can be \"peakview\" or \"openswath\" only.")
