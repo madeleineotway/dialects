@@ -2,13 +2,19 @@
 library(dialects)
 library(knitr)
 library(kableExtra)
+<<<<<<< HEAD
 library(BiocStyle)
+=======
+>>>>>>> b3066e021987c65de1aab75562d8e7dd258e4467
 
 ## --------------------------------------------------------------------------
 library(dialects)
 library(knitr)
 library(kableExtra)
+<<<<<<< HEAD
 library(BiocStyle)
+=======
+>>>>>>> b3066e021987c65de1aab75562d8e7dd258e4467
 
 ## --------------------------------------------------------------------------
 human_fasta <- system.file("extdata",
