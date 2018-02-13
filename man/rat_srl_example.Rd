@@ -3,6 +3,7 @@
 \docType{data}
 \name{rat_srl_example}
 \alias{rat_srl_example}
+\alias{rat_srl_example}
 \title{PeakView SRL}
 \format{A data frame containing 10 rows and 24 variables.
 \describe{
@@ -33,15 +34,24 @@
  }}
 \source{
 Spectral reference library created at the Children's Medical Research Intitute in 2017 by Madeleine J Otway.
+
+Spectral reference library created at the Children's Medical Research Intitute in 2017 by Madeleine J Otway, converted into OpenSWATH format by Dr Brett Tully.
 }
 \usage{
+rat_srl_example
+
 rat_srl_example
 }
 \description{
 This dataset contains an altered rat spectral reference library created in
 PeakView. This SRL is for example purposes only.
+
+This dataset contains an altered rat spectral reference library converted
+from PeakView to OpenSWATH. This SRL is for example purposes only.
 }
 \details{
+Each row corresponds to a MS/MS ion from a Spectral Reference Library. There is only one ion per peptide in this example.
+
 Each row corresponds to a MS/MS ion from a Spectral Reference Library. There is only one ion per peptide in this example.
 }
 \keyword{datasets}

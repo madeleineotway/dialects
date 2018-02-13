@@ -28,14 +28,17 @@ This function removes all non-unique peptides. Removes all peptides
 data(human_proteome_example)
 digest.fasta(human_proteome_example)
 
+## Workflow
+fasta <- system.file("extdata",
+                     "human_proteome_example.fasta",
+                     package = "dialects")
+human_proteome_example <- import.fasta(fasta)
+digest.fasta(human_proteome_example)
 
 }
 \seealso{
-
-
-Other related: \code{\link{convert.species}},
-  \code{\link{export.srl}}, \code{\link{import.fasta}},
-  \code{\link{import.srl}}
+For required functions before digesting fasta file, see:
+\code{\link[dialects]{import.fasta}}
 }
 \author{
 Madeleine J Otway \email{motway@cmri.org.au}

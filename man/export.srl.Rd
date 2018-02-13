@@ -19,14 +19,25 @@ OpenSWATH formats.
 data(rat_srl_example)
 export.srl(rat_srl_example, "new-srl.txt")
 
+## Entire Workflow
+fasta <- system.file("extdata",
+                     "human_proteome_example.fasta",
+                     package = "dialects")
+human_proteome_example <- import.fasta(fasta)
+human_digest_example <- digest.fasta(human_proteome_example)
+srl_pv <- system.file("extdata",
+                      "rat_srl_example.txt",
+                      package = "dialects")
+rat_srl_example <- import.srl(srl_pv, SRL.format = "peakview")
+human_from_rat <- convert.species(human_digest_example, rat_srl_example)
+export.srl(human_from_rat, "human_from_rat_srl.txt")
+
 
 }
 \seealso{
-
-
-Other related: \code{\link{convert.species}},
-  \code{\link{digest.fasta}}, \code{\link{import.fasta}},
-  \code{\link{import.srl}}
+For functions require to convert SRL before exporting SRL, see:
+\code{\link[dialects]{import.fasta}}, \code{\link{digest.fasta}},
+\code{\link{import.srl}}, \code{\link{convert.species}}
 }
 \author{
 Madeleine J Otway \email{motway@cmri.org.au}

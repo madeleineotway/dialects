@@ -1,0 +1,148 @@
+---
+title: "Convert the species of a spectral reference library with dialects"
+author: "Madeleine J Otway"
+package: dialects
+date: "`r Sys.Date()`"
+output: BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{Convert the species of a spectral reference library with dialects}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r echo = F, message = F, warning = F}
+library(dialects)
+library(knitr)
+library(kableExtra)
+```
+```{r}
+library(dialects)
+library(knitr)
+library(kableExtra)
+```
+
+# Introduction to dialects
+This package has been designed to help convert spectral reference libraries (SRLs) from one species to another. SRLs are converted by matching peptides from an *in silico* trypsin digestion of a protein sequence database (fasta file). Peptides are only matched if they have full sequence identity (i.e. the peptides are identical). This package is currently compatible with PeakView, OneOmics and OpenSWATH formatted SRLs. The latest version of the package can be found at: [https:github.com/madeleineotway/dialects](https:github.com/madeleineotway/dialects). Any enquiries should be sent to motway\@cmri.org.au
+
+
+# Import a protein sequence database of desired species
+To convert between species, you need to start with a protein sequence database of the desired species for your SRL. This function will allow you to import said database for *in silico* digestion in the next step.  
+
+To download a protein sequence database, head to [www.uniprot.org/](www.uniprot.org/). The database must be in fasta format (specifically .fasta only) or the function will not work. This function will work with SwissProt and TrEMBL formatted protein sequences. Once downloaded, run the function to import the fasta file.
+
+```{r}
+human_fasta <- system.file("extdata",
+                           "human_proteome_example.fasta",
+                           package = "dialects")
+human_proteome <- import.fasta(human_fasta)
+```
+
+```{r echo = FALSE, results = 'asis', fig.align='left'}
+human_proteome_s <- human_proteome
+human_proteome_s$sequence <- gsub(".{160}",
+          "",
+          human_proteome_s$sequence)
+human_proteome_s$sequence <- gsub("(.{21})",
+          "\\1\t",
+          human_proteome_s$sequence,
+          perl = T)
+kable(head(human_proteome_s), format = "html")  %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  footnote("Protein sequences have been reduced to improve readibility of vignette")
+
+```
+
+# Digest the protein sequence database
+Now that the protein sequence database of the species of interest has been imported, you need to transform the protein sequence database into a peptide database. This will allow for the conversion of the SRL to the desired species  via the protein sequence database.  
+
+To obtain the database of peptides, you must perform an *in silico* digestion of the proteins. The digestion in dialects only models trypsin with zero missed cleavages. It will also remove all peptides that are below 5 and above 52 amino acids long, and all peptides that are not unique to the database. This does not  mean that these peptides are entirely unique and I encourage people to [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins) the peptides to check for true uniqueness.
+```{r}
+digest_human <- digest.fasta(human_proteome)
+```
+
+```{r echo = FALSE, results = 'asis'}
+digest_human_char <- digest_human
+digest_human_char$char <- nchar(digest_human_char$sequence)
+digest_human_char <- digest_human_char[!(digest_human_char$char >= 30),]
+digest_human_char$char <- NULL
+rownames(digest_human_char) <- NULL
+kable(head(digest_human_char), format = "html")  %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  footnote("Peptides over 30 characters have been removed to improve readibility of vignette")
+```
+
+# Import a spectral reference library (SRL)
+Once you have your database of peptides, you need to import your SRL so that you can perform the conversion. This package is currently compatable with PeakView, OneOmics and OpenSWATH SRL format. The PeakView and OneOmics SRLs must be tab separated txt files and OpenSWATH can be either comma or tab separated files (csv and tsv, respectively). Any other file format won't work.  
+
+Please note: At this time, this package cannot convert between a PeakView/OneOmics SRL and an OpenSWATH SRL.  
+
+##PeakView and OneOmics
+```{r}
+peakview_example <- system.file("extdata",
+                                "rat_srl_example.txt",
+                                package = "dialects")
+
+rat_srl_pv <- import.srl(peakview_example,
+                         SRL.format = "peakview")
+```
+```{r echo = FALSE, results = 'asis'}
+kable(head(rat_srl_pv[,1:6]), format = "html") %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  footnote("Only the first 6 columns are shown to improve readibility of vignette")
+```
+  
+
+##OpenSWATH
+```{r}
+openswath_example <- system.file("extdata",
+                                 "rat_srl_example_openswath.tsv",
+                                 package = "dialects")
+
+rat_srl_os <- import.srl(openswath_example,
+                         SRL.format = "openswath")
+```
+```{r echo = FALSE, results = 'asis'}
+rat_srl_os$char <- nchar(rat_srl_os$PeptideSequence)
+rat_srl_os <- rat_srl_os[!(rat_srl_os$char >= 10),]
+rat_srl_os$char <- NULL
+rownames(rat_srl_os) <- NULL
+kable(head(rat_srl_os[,1:5]), format = "html") %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  footnote("Only the first 5 columns are shown to improve readibility of vignette")
+```
+
+# Covert the species of the SRL
+Now you have the SRL and peptides from the protein sequence database, you can convert the species of your SRL.
+Please note: All retention time calibration peptides will not be converted and will not be copied to the new SRL. 
+
+```{r}
+human_from_rat <- convert.species(digest_human,
+                                  rat_srl_pv,
+                                  SRL.format = "peakview")
+```
+```{r echo = FALSE, results = 'asis'}
+rownames(human_from_rat) <- NULL
+kable(head(human_from_rat[,1:6]), format = "html") %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  footnote("Only the first 6 columns are shown to improve readibility of vignette")
+```
+
+
+# Export the coverted SRL
+The final step of the conversion process is to save the converted SRL. Unfortunately, this step cannot convert the SRL, thus the file format out the SRL must match the file format of the output. PeakView and OneOmics libraries can only be saved as txt files. OpenSWATH SRLs may be saved as either tsv or csv files. 
+
+```{r}
+savepath <- system.file("extdata",
+                        "human_from_rat_srl.txt",
+                        package = "dialects")
+
+export.srl(human_from_rat, savepath)
+```
+
+
+# Session info
+```{r}
+sessionInfo()
+```
+
+

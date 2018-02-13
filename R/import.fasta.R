@@ -8,14 +8,17 @@
 #' @param fasta.file Directory and filename of fasta formatted protein sequence.
 #'
 #' @examples
-#' fasta <- system.file("extdata", "human_proteome_example.fasta", package = "dialects")
+#' fasta <- system.file("extdata",
+#'                      "human_proteome_example.fasta",
+#'                      package = "dialects")
 #' import.fasta(fasta)
 #'
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
 #'
-#' @family related
-#' @seealso
+#'
+#' @seealso To perform an \emph{in silico} tryptic digestion of the imported
+#' fasta file, see: \code{\link[dialects]{digest.fasta}}
 #'
 #' @export import.fasta
 #' @import seqinr

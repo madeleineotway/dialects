@@ -20,19 +20,32 @@
 #' @examples
 #' data(rat_srl_example)
 #' data(human_digest_example)
-#' #convert.species(human_digest_example, rat_srl_example)
+#' convert.species(human_digest_example, rat_srl_example)
+#' convert.species(human_digest_example, rat_srl_example, SRL.format = "peakview")
+#'
+#' ## Workflow
+#' fasta <- system.file("extdata",
+#'                      "human_proteome_example.fasta",
+#'                      package = "dialects")
+#' human_proteome_example <- import.fasta(fasta)
+#' human_digest_example <- digest.fasta(human_proteome_example)
+#' srl_pv <- system.file("extdata",
+#'                       "rat_srl_example.txt",
+#'                       package = "dialects")
+#' rat_srl_example <- import.srl(srl_pv, SRL.format = "peakview")
+#' convert.species(human_digest_example, rat_srl_example)
 #'
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
 #'
-#' @family related
-#' @seealso
+#' @seealso For required functions before converting SRL, see: \code{\link[dialects]{import.fasta}},
+#' \code{\link{digest.fasta}}, \code{\link{import.srl}}
 #'
 #' @export convert.species
 #'
 #'
 #'
-convert.species <- function(SRL.df, digest.df, SRL.format = "peakview"){
+convert.species <- function(digest.df, SRL.df, SRL.format = "peakview"){
 
   oldw <- getOption("warn")
   options(warn = -1)

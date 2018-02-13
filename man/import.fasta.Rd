@@ -15,17 +15,16 @@ Imports a fasta formatted protein sequence file (downloaded from
 entries.
 }
 \examples{
-fasta <- system.file("extdata", "human_proteome_example.fasta", package = "dialects")
+fasta <- system.file("extdata",
+                     "human_proteome_example.fasta",
+                     package = "dialects")
 import.fasta(fasta)
 
 
 }
 \seealso{
-
-
-Other related: \code{\link{convert.species}},
-  \code{\link{digest.fasta}}, \code{\link{export.srl}},
-  \code{\link{import.srl}}
+To perform an \emph{in silico} tryptic digestion of the imported
+fasta file, see: \code{\link[dialects]{digest.fasta}}
 }
 \author{
 Madeleine J Otway \email{motway@cmri.org.au}

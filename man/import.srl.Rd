@@ -20,20 +20,15 @@ PeakView/OneOmics or OpenSWATH formats.
 PeakView and OneOmics SRLs must be .txt format. OpenSWATH must be either .tsv or .csv format.
 }
 \examples{
-srl_pv <- system.file("extdata", "rat_srl_example.txt", package = "dialects")
+srl_pv <- system.file("extdata",
+                      "rat_srl_example.txt",
+                      package = "dialects")
 import.srl(srl_pv)
 import.srl(srl_pv, SRL.format = "peakview")
 
 #srl-os <- system.file("extdata", "SRL-OS", package = "dialects")
 #import.srl(srl-os, SRL.format = "openswath")
 
-}
-\seealso{
-
-
-Other related: \code{\link{convert.species}},
-  \code{\link{digest.fasta}}, \code{\link{export.srl}},
-  \code{\link{import.fasta}}
 }
 \author{
 Madeleine J Otway \email{motway@cmri.org.au}

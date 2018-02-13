@@ -4,14 +4,14 @@
 \alias{convert.species}
 \title{Conversion of an SRL from one species to another.}
 \usage{
-convert.species(SRL.df, digest.df, SRL.format = "peakview")
+convert.species(digest.df, SRL.df, SRL.format = "peakview")
 }
 \arguments{
-\item{SRL.df}{A data frame of the spectral reference library from
-\code{\link{import.srl}}.}
-
 \item{digest.df}{A data frame of the digested protein sequence from the
 desired species generated from  \code{\link{digest.fasta}}.}
+
+\item{SRL.df}{A data frame of the spectral reference library from
+\code{\link{import.srl}}.}
 
 \item{SRL.format}{The format of the SRL. Either "peakview" for PeakView or
 OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".}
@@ -31,16 +31,26 @@ PeakView/OneOmics SRL.
 \examples{
 data(rat_srl_example)
 data(human_digest_example)
-#convert.species(human_digest_example, rat_srl_example)
+convert.species(human_digest_example, rat_srl_example)
+convert.species(human_digest_example, rat_srl_example, SRL.format = "peakview")
+
+## Workflow
+fasta <- system.file("extdata",
+                     "human_proteome_example.fasta",
+                     package = "dialects")
+human_proteome_example <- import.fasta(fasta)
+human_digest_example <- digest.fasta(human_proteome_example)
+srl_pv <- system.file("extdata",
+                      "rat_srl_example.txt",
+                      package = "dialects")
+rat_srl_example <- import.srl(srl_pv, SRL.format = "peakview")
+convert.species(human_digest_example, rat_srl_example)
 
 
 }
 \seealso{
-
-
-Other related: \code{\link{digest.fasta}},
-  \code{\link{export.srl}}, \code{\link{import.fasta}},
-  \code{\link{import.srl}}
+For required functions before converting SRL, see: \code{\link[dialects]{import.fasta}},
+\code{\link{digest.fasta}}, \code{\link{import.srl}}
 }
 \author{
 Madeleine J Otway \email{motway@cmri.org.au}

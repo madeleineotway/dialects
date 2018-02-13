@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: dialects\nType: Package\nTitle: Data Independent Acquisition Library Editing to Convert The Species\nVersion: 0.1.0\nAuthor: Madeleine J Otway \nMaintainer: Madeleine J Otway <motway@cmri.org.au>\nDescription: Converts between species in a spectral reference library\n    for SWATH-MS and DIA analysis.\nImports: data.table,\n    seqinr,\n    splitstackshape\nbiocViews: \nLicense: GPL-3\nEncoding: UTF-8\nLazyData: true\nRoxygenNote: 6.0.1\n",
+    "created" : 1509340762640.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1681623551",
+    "id" : "BB92CB8A",
+    "lastKnownWriteTime" : 1510440203,
+    "last_content_update" : 1510440203,
+    "path" : "~/dialects/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}
