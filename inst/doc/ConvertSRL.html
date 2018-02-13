@@ -141,7 +141,8 @@ $(document).ready(function () {
 
 <pre class="r"><code>library(dialects)
 library(knitr)
-library(kableExtra)</code></pre>
+library(kableExtra)
+library(BiocStyle)</code></pre>
 <div id="introduction-to-dialects" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction to dialects</h1>
 <p>This package has been designed to help convert spectral reference libraries (SRLs) from one species to another. SRLs are converted by matching peptides from an <em>in silico</em> trypsin digestion of a protein sequence database (fasta file). Peptides are only matched if they have full sequence identity (i.e. the peptides are identical). This package is currently compatible with PeakView, OneOmics and OpenSWATH formatted SRLs. The latest version of the package can be found at: <a href="https:github.com/madeleineotway/dialects" class="uri">https:github.com/madeleineotway/dialects</a>. Any enquiries should be sent to motway@cmri.org.au</p>
@@ -862,7 +863,7 @@ export.srl(human_from_rat, savepath)</code></pre>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] kableExtra_0.7.0  knitr_1.19        dialects_0.0.0.56 BiocStyle_2.6.1  
+## [1] kableExtra_0.7.0  knitr_1.19        BiocStyle_2.6.1   dialects_0.0.0.56
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.12.15          highr_0.6             BiocInstaller_1.28.0 
@@ -871,10 +872,10 @@ export.srl(human_from_rat, savepath)</code></pre>
 ## [10] memoise_1.1.0         tibble_1.4.2          viridisLite_0.3.0    
 ## [13] pkgconfig_2.0.1       rlang_0.1.6           yaml_2.1.16          
 ## [16] xfun_0.1              withr_2.1.1           stringr_1.2.0        
-## [19] httr_1.3.1            xml2_1.2.0            devtools_1.13.4      
-## [22] hms_0.4.1             rprojroot_1.3-2       ade4_1.7-10          
-## [25] data.table_1.10.4-3   R6_2.2.2              rmarkdown_1.8        
-## [28] bookdown_0.6          readr_1.1.1           seqinr_3.4-5         
+## [19] httr_1.3.1            xml2_1.2.0            hms_0.4.1            
+## [22] devtools_1.13.4       rprojroot_1.3-2       ade4_1.7-10          
+## [25] data.table_1.10.4-3   R6_2.2.2              bookdown_0.6         
+## [28] rmarkdown_1.8         readr_1.1.1           seqinr_3.4-5         
 ## [31] magrittr_1.5          backports_1.1.2       scales_0.5.0         
 ## [34] htmltools_0.3.6       MASS_7.3-48           rvest_0.3.2          
 ## [37] splitstackshape_1.4.2 colorspace_1.3-2      stringi_1.1.6        

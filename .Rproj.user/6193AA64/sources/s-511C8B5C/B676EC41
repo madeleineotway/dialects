@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3085311859",
+    "hash" : "0",
     "id" : "B676EC41",
-    "lastKnownWriteTime" : 1518525096,
-    "last_content_update" : 1518525096935,
+    "lastKnownWriteTime" : 1518525255,
+    "last_content_update" : 1518525255292,
     "path" : "~/dialects/DESCRIPTION",
     "project_path" : "DESCRIPTION",
     "properties" : {
-        "cursorPosition" : "3,17",
-        "scrollLine" : "0"
+        "cursorPosition" : "13,27",
+        "scrollLine" : "1"
     },
     "relative_order" : 1,
     "source_on_save" : false,
