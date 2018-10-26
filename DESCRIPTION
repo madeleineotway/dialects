@@ -1,7 +1,7 @@
 Package: dialects
 Type: Package
 Title: Data Independent Acquisition Library Editing to Convert The Species
-Version: 0.0.0.58
+Version: 0.0.58
 Authors@R: c(person("Madeleine J", "Otway", email = "motway@cmri.org.au",
                     role = c("aut", "cre")),
              person("Ellis", "Patrick", email = "ellis.patrick@sydney.edu.au",
@@ -22,7 +22,7 @@ biocViews:
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Suggests: knitr,
     rmarkdown,
     kableExtra,
