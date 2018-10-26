@@ -3,7 +3,6 @@
 \docType{data}
 \name{rat_srl_example}
 \alias{rat_srl_example}
-\alias{rat_srl_example}
 \title{PeakView SRL}
 \format{A data frame containing 10 rows and 24 variables.
 \describe{
