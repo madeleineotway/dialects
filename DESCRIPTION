@@ -11,7 +11,10 @@ Authors@R: c(person("Madeleine J", "Otway", email = "motway@cmri.org.au",
              person("Peter G", "Hains", email = "phains@cmri.org.au",
                     role = "ths"),
              person("Phillip J", "Robinson", email = "probinson@cmri.org.au",
-                    role = "ths"))
+                    role = "ths"),
+             person("Ashley J", "Waardenberg", email = "a.waardenberg@gmail.com",
+                    role = c("aut", "cre")),
+                    )
 Description: Converts between species in a spectral reference library
     for SWATH-MS and DIA analysis.
 Imports: ade4,
