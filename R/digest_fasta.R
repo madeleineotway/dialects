@@ -58,14 +58,14 @@ digestFasta <- function(fasta.df){
   fasta.dt <- data.table::data.table(fasta.df)
   # Inset a comma at digestion site
   x <- gsub("((?<=[K])(?=[^P]))|((?<=[R])(?=[^P]))",
-            ",", fasta.dt$sequence, perl = T)
+            ",", fasta.dt$sequence, perl = TRUE)
   fasta.dt$sequence <- x
   # Digest sequences
   digest.dt <- splitstackshape::cSplit(fasta.dt, "sequence",
                                        sep = ",",
                                        direction = "long",
-                                       drop = F,
-                                       fixed = F)
+                                       drop = FALSE,
+                                       fixed = FALSE)
   digest.dt$sequence <- as.character(digest.dt$sequence)
   # Remove all peptides less than 5 and more than 52 amino acids long
   digest.2.dt <- digest.dt[!(nchar(digest.dt$sequence) < 5 |

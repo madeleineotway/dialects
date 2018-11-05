@@ -47,16 +47,16 @@ importFasta <- function(fasta.file){
   # import fasta into list
   fasta.list <- seqinr::read.fasta(fasta.file,
                            seqtype = "AA",
-                           as.string = T,
-                           set.attributes = T,
-                           strip.desc = F)
+                           as.string = TRUE,
+                           set.attributes = TRUE,
+                           strip.desc = FALSE)
 
   # create data frame with details from list
   fasta.df <- data.frame("accession" = (seqinr::getName.SeqFastaAA(fasta.list)),
                          "name" = (unlist(seqinr::getAnnot(fasta.list))),
                          "sequence" = (unlist(seqinr::getSequence.character(fasta.list))),
                          row.names = c(),
-                         stringsAsFactors = F)
+                         stringsAsFactors = FALSE)
 
   # Remove the accession from the name of the protein
   fasta.df$name <- gsub("^[^ ]* ", "", fasta.df$name)

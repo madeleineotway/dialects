@@ -67,21 +67,21 @@ exportSRL <- function(SRL.df, SRL.filepath){
   if((endsWith(filepath.test, ".txt")) | (endsWith(filepath.test, ".tsv"))) {
     write.table(SRL.df,
               file = SRL.filepath,
-              quote = F,
+              quote = FALSE,
               sep = "\t",
               na = "",
-              row.names = F,
-              col.names = T)
+              row.names = FALSE,
+              col.names = TRUE)
   }
 
   if(endsWith(filepath.test, ".csv")) {
     write.table(SRL.df,
                 file = SRL.filepath,
-                quote = F,
+                quote = FALSE,
                 sep = ",",
                 na = "",
-                row.names = F,
-                col.names = T)
+                row.names = FALSE,
+                col.names = TRUE)
   }
 
   options(warn = oldw)

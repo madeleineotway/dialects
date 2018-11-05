@@ -51,16 +51,16 @@ importSRL <- function(filepath, SRL.format = "peakview"){
   if((endsWith(filepath.test, "txt")) | (endsWith(filepath.test, "tsv")))
     srl.df <- read.table(filepath,
                          sep = "\t",
-                         header = T,
+                         header = TRUE,
                          quote = NULL,
-                         stringsAsFactors = F)
+                         stringsAsFactors = FALSE)
 
   if((endsWith(filepath.test, "csv")))
     srl.df <- read.table(filepath,
                          sep = ",",
-                         header = T,
+                         header = TRUE,
                          quote = NULL,
-                         stringsAsFactors = F)
+                         stringsAsFactors = FALSE)
 
   ## Test expected header names
   ## PeakView
