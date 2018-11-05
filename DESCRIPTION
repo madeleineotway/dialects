@@ -1,7 +1,7 @@
 Package: dialects
 Type: Package
 Title: Data Independent Acquisition Library Editing to Convert The Species
-Version: 0.0.58
+Version: 0.99.1
 Authors@R: c(person("Madeleine J", "Otway", email = "motway@cmri.org.au",
                     role = c("aut", "cre")),
              person("Ellis", "Patrick", email = "ellis.patrick@sydney.edu.au",
@@ -13,7 +13,7 @@ Authors@R: c(person("Madeleine J", "Otway", email = "motway@cmri.org.au",
              person("Phillip J", "Robinson", email = "probinson@cmri.org.au",
                     role = "ths"),
              person("Ashley J", "Waardenberg", email = "a.waardenberg@gmail.com",
-                    role = c("aut", "cre")),
+                    role = c("ctb"))
                     )
 Description: Converts between species in a spectral reference library
     for SWATH-MS and DIA analysis.
