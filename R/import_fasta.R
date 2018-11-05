@@ -25,7 +25,7 @@
 #' @import seqinr
 #' @import ade4
 
-importFasta <- function(fasta.file){
+importFasta <- function(fasta.file = NULL){
 
   oldw <- getOption("warn")
   options(warn = -1)
@@ -66,6 +66,6 @@ importFasta <- function(fasta.file){
 
   options(warn = oldw)
 
-  return(fasta.df)
+return(fasta.df)
 
 }

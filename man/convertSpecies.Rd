@@ -4,7 +4,8 @@
 \alias{convertSpecies}
 \title{Conversion of an SRL from one species to another.}
 \usage{
-convertSpecies(digest.df, SRL.df, SRL.format = "peakview")
+convertSpecies(digest.df = NULL, SRL.df = NULL,
+  SRL.format = "peakview")
 }
 \arguments{
 \item{digest.df}{A data frame of the digested protein sequence from the

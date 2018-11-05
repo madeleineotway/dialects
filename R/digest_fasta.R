@@ -36,7 +36,7 @@
 #'
 #'
 #'
-digestFasta <- function(fasta.df){
+digestFasta <- function(fasta.df = NULL){
 
   oldw <- getOption("warn")
   options(warn = -1)
@@ -77,6 +77,6 @@ digestFasta <- function(fasta.df){
 
   options(warn = oldw)
 
-  return(digest.df)
+return(digest.df)
 }
 

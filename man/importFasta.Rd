@@ -4,7 +4,7 @@
 \alias{importFasta}
 \title{Import a fasta file.}
 \usage{
-importFasta(fasta.file)
+importFasta(fasta.file = NULL)
 }
 \arguments{
 \item{fasta.file}{Full path to filename of fasta formatted protein sequence.}

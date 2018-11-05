@@ -45,7 +45,9 @@
 #'
 #'
 #'
-convertSpecies <- function(digest.df, SRL.df, SRL.format = "peakview"){
+convertSpecies <- function(digest.df = NULL,
+                           SRL.df = NULL,
+                           SRL.format = "peakview"){
 
   oldw <- getOption("warn")
   options(warn = -1)
@@ -81,7 +83,6 @@ convertSpecies <- function(digest.df, SRL.df, SRL.format = "peakview"){
     names(SRL.df)[names(SRL.df) == "PeptideSequence"] <- "peptide"
   }
 
-
   ## Remove retention time proteins from PeakView/OneOmics SRL
   if(SRL.format == "peakview"){
     SRL.df <- SRL.df[!(SRL.df$uniprot == "[ RT-Cal protein ]"),]
@@ -114,5 +115,5 @@ convertSpecies <- function(digest.df, SRL.df, SRL.format = "peakview"){
 
   options(warn = oldw)
 
-  return(new.SRL.df)
+return(new.SRL.df)
 }

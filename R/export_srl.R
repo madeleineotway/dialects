@@ -37,7 +37,8 @@
 #'
 #'
 #'
-exportSRL <- function(SRL.df, SRL.filepath){
+exportSRL <- function(SRL.df = NULL,
+                      SRL.filepath = NULL){
 
   oldw <- getOption("warn")
   options(warn = -1)
@@ -88,5 +89,5 @@ exportSRL <- function(SRL.df, SRL.filepath){
 
   options(warn = oldw)
 
-  return(print("Output complete"))
+return(print("Output complete"))
 }

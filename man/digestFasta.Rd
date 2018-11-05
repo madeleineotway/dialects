@@ -4,7 +4,7 @@
 \alias{digestFasta}
 \title{Tryptic digestion of a protein sequence dataframe.}
 \usage{
-digestFasta(fasta.df)
+digestFasta(fasta.df = NULL)
 }
 \arguments{
 \item{fasta.df}{Data frame generated from \code{\link{import.fasta}}}

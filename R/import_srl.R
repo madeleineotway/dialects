@@ -3,7 +3,7 @@
 #' This function imports a spectral reference library (SRL) in either
 #' PeakView/OneOmics or OpenSWATH formats.
 #'
-#' @param filepath Directory and filename of the SRL.
+#' @param filepath Full path to SRL file. I.e. /path/to/SRL.file
 #' @param SRL.format The format of the SRL. Either "peakview" for PeakView or
 #' OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".
 #'
@@ -27,7 +27,8 @@
 #' @export importSRL
 #'
 #'
-importSRL <- function(filepath, SRL.format = "peakview"){
+importSRL <- function(filepath = NULL,
+                      SRL.format = "peakview"){
 
   oldw <- getOption("warn")
   options(warn = -1)
@@ -74,6 +75,6 @@ importSRL <- function(filepath, SRL.format = "peakview"){
 
   options(warn = oldw)
 
-  return(srl.df)
+return(srl.df)
 }
 

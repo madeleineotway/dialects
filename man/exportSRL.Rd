@@ -4,7 +4,7 @@
 \alias{exportSRL}
 \title{Export an SRL.}
 \usage{
-exportSRL(SRL.df, SRL.filepath)
+exportSRL(SRL.df = NULL, SRL.filepath = NULL)
 }
 \arguments{
 \item{SRL.df}{Data frame of an SRL}

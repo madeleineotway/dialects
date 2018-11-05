@@ -4,10 +4,10 @@
 \alias{importSRL}
 \title{Import an SRL.}
 \usage{
-importSRL(filepath, SRL.format = "peakview")
+importSRL(filepath = NULL, SRL.format = "peakview")
 }
 \arguments{
-\item{filepath}{Directory and filename of the SRL.}
+\item{filepath}{Full path to SRL file. I.e. /path/to/SRL.file}
 
 \item{SRL.format}{The format of the SRL. Either "peakview" for PeakView or
 OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".}
