@@ -20,8 +20,10 @@ Description: Converts between species in a spectral reference library
 Imports: ade4,
     data.table,
     seqinr,
-    splitstackshape
-biocViews: 
+    splitstackshape,
+    utils
+biocViews: Proteomics,
+    SequenceMatching
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
