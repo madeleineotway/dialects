@@ -2,5 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-.Rproj.user/**
-.Rbuildignore
+man/.Rapp.history
+data/.DS_Store
+inst/doc/.DS_Store
+man/.DS_Store
