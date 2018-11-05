@@ -11,21 +11,21 @@
 #' srl_pv <- system.file("extdata",
 #'                       "rat_srl_example.txt",
 #'                       package = "dialects")
-#' import.srl(srl_pv)
-#' import.srl(srl_pv, SRL.format = "peakview")
+#' importSRL(srl_pv)
+#' importSRL(srl_pv, SRL.format = "peakview")
 #'
 #' #srl-os <- system.file("extdata", "SRL-OS", package = "dialects")
-#' #import.srl(srl-os, SRL.format = "openswath")
+#' #importSRL(srl-os, SRL.format = "openswath")
 #'
 #' @note PeakView and OneOmics SRLs must be .txt format. OpenSWATH must be either .tsv or .csv format.
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
 #'
 #' @importFrom utils read.table
-#' @export import.srl
+#' @export importSRL
 #'
 #'
-import.srl <- function(filepath, SRL.format = "peakview"){
+importSRL <- function(filepath, SRL.format = "peakview"){
 
   oldw <- getOption("warn")
   options(warn = -1)

@@ -36,7 +36,7 @@ To download a protein sequence database, head to [www.uniprot.org/](www.uniprot.
 human_fasta <- system.file("extdata",
                            "human_proteome_example.fasta",
                            package = "dialects")
-human_proteome <- import.fasta(human_fasta)
+human_proteome <- importFasta(human_fasta)
 ```
 
 ```{r echo = FALSE, results = 'asis', fig.align='left'}
@@ -59,7 +59,7 @@ Now that the protein sequence database of the species of interest has been impor
 
 To obtain the database of peptides, you must perform an *in silico* digestion of the proteins. The digestion in dialects only models trypsin with zero missed cleavages. It will also remove all peptides that are below 5 and above 52 amino acids long, and all peptides that are not unique to the database. This does not  mean that these peptides are entirely unique and I encourage people to [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins) the peptides to check for true uniqueness.
 ```{r}
-digest_human <- digest.fasta(human_proteome)
+digest_human <- digestFasta(human_proteome)
 ```
 
 ```{r echo = FALSE, results = 'asis'}
@@ -118,7 +118,7 @@ Now you have the SRL and peptides from the protein sequence database, you can co
 Please note: All retention time calibration peptides will not be converted and will not be copied to the new SRL. 
 
 ```{r}
-human_from_rat <- convert.species(digest_human,
+human_from_rat <- convertSpecies(digest_human,
                                   rat_srl_pv,
                                   SRL.format = "peakview")
 ```
@@ -138,7 +138,7 @@ savepath <- system.file("extdata",
                         "human_from_rat_srl.txt",
                         package = "dialects")
 
-export.srl(human_from_rat, savepath)
+exportSRL(human_from_rat, savepath)
 ```
 
 

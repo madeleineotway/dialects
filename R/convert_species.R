@@ -3,7 +3,6 @@
 #' Converts the species in the spectral reference library to the species in the
 #' digested fasta data frame where full peptide identity occurs.
 #'
-#'
 #' @param SRL.df A data frame of the spectral reference library from
 #' \code{\link{import.srl}}.
 #' @param digest.df A data frame of the digested protein sequence from the
@@ -20,8 +19,8 @@
 #' @examples
 #' data(rat_srl_example)
 #' data(human_digest_example)
-#' convert.species(human_digest_example, rat_srl_example)
-#' convert.species(human_digest_example, rat_srl_example, SRL.format = "peakview")
+#' convertSpecies(human_digest_example, rat_srl_example)
+#' convertSpecies(human_digest_example, rat_srl_example, SRL.format = "peakview")
 #'
 #' ## Workflow
 #' fasta <- system.file("extdata",
@@ -33,7 +32,7 @@
 #'                       "rat_srl_example.txt",
 #'                       package = "dialects")
 #' rat_srl_example <- import.srl(srl_pv, SRL.format = "peakview")
-#' convert.species(human_digest_example, rat_srl_example)
+#' convertSpecies(human_digest_example, rat_srl_example)
 #'
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
@@ -41,11 +40,11 @@
 #' @seealso For required functions before converting SRL, see: \code{\link[dialects]{import.fasta}},
 #' \code{\link{digest.fasta}}, \code{\link{import.srl}}
 #'
-#' @export convert.species
+#' @export convertSpecies
 #'
 #'
 #'
-convert.species <- function(digest.df, SRL.df, SRL.format = "peakview"){
+convertSpecies <- function(digest.df, SRL.df, SRL.format = "peakview"){
 
   oldw <- getOption("warn")
   options(warn = -1)

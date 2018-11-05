@@ -11,7 +11,7 @@
 #' fasta <- system.file("extdata",
 #'                      "human_proteome_example.fasta",
 #'                      package = "dialects")
-#' import.fasta(fasta)
+#' importFasta(fasta)
 #'
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
@@ -20,13 +20,13 @@
 #' @seealso To perform an \emph{in silico} tryptic digestion of the imported
 #' fasta file, see: \code{\link[dialects]{digest.fasta}}
 #'
-#' @export import.fasta
+#' @export importFasta
 #' @import seqinr
 #' @import ade4
 #'
 #'
 #'
-import.fasta <- function(fasta.file){
+importFasta <- function(fasta.file){
 
   oldw <- getOption("warn")
   options(warn = -1)

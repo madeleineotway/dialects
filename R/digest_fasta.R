@@ -15,28 +15,28 @@
 #'
 #' @examples
 #' data(human_proteome_example)
-#' digest.fasta(human_proteome_example)
+#' digestFasta(human_proteome_example)
 #'
 #' ## Workflow
 #' fasta <- system.file("extdata",
 #'                      "human_proteome_example.fasta",
 #'                      package = "dialects")
 #' human_proteome_example <- import.fasta(fasta)
-#' digest.fasta(human_proteome_example)
+#' digestFasta(human_proteome_example)
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
 #'
 #' @seealso For required functions before digesting fasta file, see:
 #' \code{\link[dialects]{import.fasta}}
 #'
-#' @export digest.fasta
+#' @export digestFasta
 #' @import data.table
 #' @import splitstackshape
 #'
 #'
 #'
 #'
-digest.fasta <- function(fasta.df){
+digestFasta <- function(fasta.df){
 
   oldw <- getOption("warn")
   options(warn = -1)

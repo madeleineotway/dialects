@@ -8,7 +8,7 @@
 #'
 #' @examples
 #' data(rat_srl_example)
-#' export.srl(rat_srl_example, "new-srl.txt")
+#' exportSRL(rat_srl_example, "new-srl.txt")
 #'
 #' ## Entire Workflow
 #' fasta <- system.file("extdata",
@@ -21,7 +21,7 @@
 #'                       package = "dialects")
 #' rat_srl_example <- import.srl(srl_pv, SRL.format = "peakview")
 #' human_from_rat <- convert.species(human_digest_example, rat_srl_example)
-#' export.srl(human_from_rat, "human_from_rat_srl.txt")
+#' exportSRL(human_from_rat, "human_from_rat_srl.txt")
 #'
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
@@ -31,11 +31,11 @@
 #' \code{\link{import.srl}}, \code{\link{convert.species}}
 #'
 #' @importFrom utils write.table
-#' @export export.srl
+#' @export exportSRL
 #'
 #'
 #'
-export.srl <- function(SRL.df, SRL.filepath){
+exportSRL <- function(SRL.df, SRL.filepath){
 
   oldw <- getOption("warn")
   options(warn = -1)
