@@ -4,9 +4,9 @@
 #' digested fasta data frame where full peptide identity occurs.
 #'
 #' @param SRL.df A data frame of the spectral reference library from
-#' \code{\link{import.srl}}.
+#' \code{\link{importSRL}}.
 #' @param digest.df A data frame of the digested protein sequence from the
-#' desired species generated from  \code{\link{digest.fasta}}.
+#' desired species generated from \code{\link{digestFasta}}.
 #' @param SRL.format The format of the SRL. Either "peakview" for PeakView or
 #' OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".
 #'
@@ -37,8 +37,9 @@
 #'
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
 #'
-#' @seealso For required functions before converting SRL, see: \code{\link[dialects]{import.fasta}},
-#' \code{\link{digest.fasta}}, \code{\link{import.srl}}
+#' @seealso For required functions before converting SRL, see:
+#' \code{\link[dialects]{importFfasta}},
+#' \code{\link{digestFasta}}, \code{\link{importSRL}}
 #'
 #' @export convertSpecies
 #'

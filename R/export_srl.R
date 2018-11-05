@@ -6,6 +6,8 @@
 #' @param SRL.df Data frame of an SRL
 #' @param SRL.filepath The directory and filename of the SRL to be exported
 #'
+#' @return SRL in directory provided
+#'
 #' @examples
 #' data(rat_srl_example)
 #' exportSRL(rat_srl_example, "new-srl.txt")
@@ -27,8 +29,8 @@
 #' @author Madeleine J Otway \email{motway@@cmri.org.au}
 #'
 #' @seealso For functions require to convert SRL before exporting SRL, see:
-#' \code{\link[dialects]{import.fasta}}, \code{\link{digest.fasta}},
-#' \code{\link{import.srl}}, \code{\link{convert.species}}
+#' \code{\link[dialects]{importFasta}}, \code{\link{digestFasta}},
+#' \code{\link{importSRL}}, \code{\link{convertSpecies}}
 #'
 #' @importFrom utils write.table
 #' @export exportSRL

@@ -11,6 +11,9 @@ exportSRL(SRL.df, SRL.filepath)
 
 \item{SRL.filepath}{The directory and filename of the SRL to be exported}
 }
+\value{
+SRL in directory provided
+}
 \description{
 Exports a spectral reference library (SRL) in either PeakView/OneOmics or
 OpenSWATH formats.
@@ -36,8 +39,8 @@ exportSRL(human_from_rat, "human_from_rat_srl.txt")
 }
 \seealso{
 For functions require to convert SRL before exporting SRL, see:
-\code{\link[dialects]{import.fasta}}, \code{\link{digest.fasta}},
-\code{\link{import.srl}}, \code{\link{convert.species}}
+\code{\link[dialects]{importFasta}}, \code{\link{digestFasta}},
+\code{\link{importSRL}}, \code{\link{convertSpecies}}
 }
 \author{
 Madeleine J Otway \email{motway@cmri.org.au}

@@ -10,7 +10,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r echo = F, message = F, warning = F}
+```{r echo = FALSE, message = FALSE, warning = FALSE}
 library(dialects)
 library(knitr)
 library(kableExtra)
@@ -47,7 +47,7 @@ human_proteome_s$sequence <- gsub(".{160}",
 human_proteome_s$sequence <- gsub("(.{21})",
           "\\1\t",
           human_proteome_s$sequence,
-          perl = T)
+          perl = TRUE)
 kable(head(human_proteome_s), format = "html")  %>%
   kable_styling(bootstrap_options = "striped") %>%
   footnote("Protein sequences have been reduced to improve readibility of vignette")
