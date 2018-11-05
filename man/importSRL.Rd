@@ -12,6 +12,9 @@ importSRL(filepath, SRL.format = "peakview")
 \item{SRL.format}{The format of the SRL. Either "peakview" for PeakView or
 OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".}
 }
+\value{
+SRL
+}
 \description{
 This function imports a spectral reference library (SRL) in either
 PeakView/OneOmics or OpenSWATH formats.

@@ -7,6 +7,8 @@
 #' @param SRL.format The format of the SRL. Either "peakview" for PeakView or
 #' OneOmics SRLs or "openswath" for OpenSWATH SRLs. Defaults to "peakview".
 #'
+#' @return SRL
+#'
 #' @examples
 #' srl_pv <- system.file("extdata",
 #'                       "rat_srl_example.txt",

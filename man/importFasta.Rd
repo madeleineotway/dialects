@@ -7,7 +7,10 @@
 importFasta(fasta.file)
 }
 \arguments{
-\item{fasta.file}{Directory and filename of fasta formatted protein sequence.}
+\item{fasta.file}{Full path to filename of fasta formatted protein sequence.}
+}
+\value{
+Fasta sequences
 }
 \description{
 Imports a fasta formatted protein sequence file (downloaded from
@@ -24,7 +27,7 @@ importFasta(fasta)
 }
 \seealso{
 To perform an \emph{in silico} tryptic digestion of the imported
-fasta file, see: \code{\link[dialects]{digest.fasta}}
+fasta file, see: \code{\link[dialects]{digestFasta}}
 }
 \author{
 Madeleine J Otway \email{motway@cmri.org.au}

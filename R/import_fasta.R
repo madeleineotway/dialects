@@ -4,8 +4,9 @@
 #' \url{www.uniprot.org}). This function is compatable with SwissProt and TrEMBL
 #' entries.
 #'
+#' @param fasta.file Full path to filename of fasta formatted protein sequence.
 #'
-#' @param fasta.file Directory and filename of fasta formatted protein sequence.
+#' @return Fasta sequences
 #'
 #' @examples
 #' fasta <- system.file("extdata",
@@ -18,14 +19,12 @@
 #'
 #'
 #' @seealso To perform an \emph{in silico} tryptic digestion of the imported
-#' fasta file, see: \code{\link[dialects]{digest.fasta}}
+#' fasta file, see: \code{\link[dialects]{digestFasta}}
 #'
 #' @export importFasta
 #' @import seqinr
 #' @import ade4
-#'
-#'
-#'
+
 importFasta <- function(fasta.file){
 
   oldw <- getOption("warn")

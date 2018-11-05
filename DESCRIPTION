@@ -22,8 +22,11 @@ Imports: ade4,
     seqinr,
     splitstackshape,
     utils
+Depends:
+    R (>= 3.5)
 biocViews: Proteomics,
-    SequenceMatching
+    SequenceMatching,
+    DataImport
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
